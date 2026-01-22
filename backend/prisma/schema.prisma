@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum CrowdLevel {
+  CHILL
+  MEDIUM
+  BUSY
+  PACKED
+}
+
+model Bar {
+  id          String   @id @default(cuid())
+  name        String
+  address     String
+  city        String
+  latitude    Float
+  longitude   Float
+  amenities   Json
+  vibe        String
+  busyPercent Int
+  updatedAt   DateTime @updatedAt
+  checkIns    CheckIn[]
+}
+
+model CheckIn {
+  id           String     @id @default(cuid())
+  barId        String
+  crowdLevel   CrowdLevel
+  observations Json
+  createdAt    DateTime   @default(now())
+
+  bar Bar @relation(fields: [barId], references: [id])
+}
