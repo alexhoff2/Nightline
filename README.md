@@ -5,7 +5,6 @@ Nightline is an iOS-first nightlife companion that helps people decide where to 
 ## Repository layout
 
 - `backend/` - Express + Prisma API service (SQLite for local development).
-- `ios/` - SwiftUI scaffolding for the iOS app experience.
 
 ## Backend setup
 
@@ -48,6 +47,6 @@ The API runs at `http://localhost:4000` by default.
 
 ## Next steps
 
-- Connect the iOS app to a remote backend for device testing.
-- Add saving/favorites, profiles, and authentication flows.
-- Add bar owner tooling for updating amenities and events.
+- Build SwiftUI app scaffold that matches the Explore, Live, Check-in, Saved, and Profile tabs.
+- Connect the iOS client to the API for live crowd updates.
+- Add auth + role management for bar owners and verified reporters.
